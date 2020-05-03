@@ -4,5 +4,8 @@ MAINTAINER chris.maki@ripcitysoftware.com
 # Create working directory
 RUN mkdir /project
 WORKDIR /project
-RUN apk add git git-crypt make zip rsync gcc libc-dev libffi-dev py-cryptography openssl-dev --update && \
-    pip install pipenv
+RUN apk add git curl git-crypt make zip rsync gcc libc-dev libffi-dev py-cryptography openssl-dev --update && \
+    pip install --upgrade pip && \
+    pip install pipenv && \
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+ENV PATH "/root/.poetry/bin:$PATH"
