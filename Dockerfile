@@ -5,7 +5,7 @@ MAINTAINER chris.maki@ripcitysoftware.com
 RUN mkdir /project
 WORKDIR /project
 RUN apt-get update && \
-    apt-get install git-crypt zip rsync && \
+    apt-get install git-crypt zip rsync --yes && \
     pip install --upgrade pip && \
     pip install pipenv && \
     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
